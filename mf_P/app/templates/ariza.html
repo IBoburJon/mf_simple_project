@@ -1,0 +1,326 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <title>M H X S</title>
+
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/styleHome.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+    
+    
+    </head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'ariza' %}">
+            <h3>
+              M H X S
+            </h3>
+            <span> </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'ariza' %}">Ariza</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+    <section class="section__profile">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card public-profile border-0 rounded shadow">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-4 col-lg-2 text-md-left text-center">
+                        <div class="avatar rounded-circle shadow d-block mx-lg-auto"><img src="{% static 'images/user.png' %}"
+                                                                                          alt="" class="avatar-large"></div>
+                      </div>
+                      <div class="col-8 col-lg-10">
+                        <div class="row align-items-end">
+                          <div class="col-md-7">
+                            <div class="name"><h3 id="full_name" class="title mb-0"></h3>
+                              <small id="email" class="text-muted h6 mr-2"></small></div>
+                          </div>
+                          <div class="col-md-5">
+                            <ul class="social list-unstyled">
+                              <li class="list-inline-item ml-1"><a class="rounded logout"
+                                                                   style="width: 60px;" onclick="logOut()"><span>Chiqish</span></a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="mb-4 mb-lg-0 col-lg-5">
+                <div class="user__content shadow rounded">
+                  <div class="content"><p class="mb-1">Umumiy ma'lumot</p>
+                    <table class="table table-sm">
+                      <tbody>
+                      <tr>
+                        <th class="col-md-4">F.I.O.</th>
+                        <td id="fio"></td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Tug‘ilgan sana</th>
+                        <td id="birth_date"></td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Telefon raqami</th>
+                        <td id="mob_phone_no"></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="content"><p class="my-1">Pasport ma'lumotlari</p>
+                    <table class="table table-sm">
+                      <tbody>
+                      <tr>
+                        <th class="col-md-4">JShShIR</th>
+                        <td id="pin"></td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Berilgan sanasi</th>
+                        <td id="issue_date"></td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Muddati tugash sanasi</th>
+                        <td id="expr_date"></td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Pasport seriyasi va raqami</th>
+                        <td id="pport_no"></td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Kim tomonidan berilgan</th>
+                        <td id="pport_issue_place"></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="content"><p class="my-1">Doimiy ro‘yxatdan o‘tgan manzili</p>
+                    <table class="table table-sm">
+                      <tbody>
+                      <tr>
+                        <th class="col-md-4">Mamlakat</th>
+                        <td id="ctzn"></td>
+                      </tr>
+<!--                      <tr>-->
+<!--                        <th class="col-md-4">Tuman</th>-->
+<!--                        <td>QIBRAY TUMANI</td>-->
+<!--                      </tr>-->
+                      <tr>
+                        <th class="col-md-4">Manzil</th>
+                        <td id="per_adr"></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="content"><p class="mb-1">Oliy ta'lim</p>
+                    <table class="table table-sm">
+                      <tbody>
+                      <tr>
+                        <th class="col-md-4">Yo’nalish</th>
+                        <td>Telekommunikatsiya texnologiyalari</td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Darajasi</th>
+                        <td>Bakalavr</td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Ta’lim shakli</th>
+                        <td>Kunduzgi</td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Kurs</th>
+                        <td>4-kurs</td>
+                      </tr>
+                      <tr>
+                        <th class="col-md-4">Stipendiya</th>
+                        <td>To‘lov-shartnoma</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-7">
+                <div class="user__content shadow rounded">
+                  <div class="message"><h3>ARIZA YUBORISH</h3>
+                    <form>
+                      <div class="row">
+                        <div class="col-lg-12 mb-3">
+                          <div class="form-group"><label for="pinfl">* PINFL</label><input type="text" class="form-control"
+                                                                                           id="pinfl" disabled=""></div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                          <div class="form-group"><label for="tel">* Telefon raqam</label><input type="text"
+                                                                                                 class="form-control"
+                                                                                                 id="tel" disabled=""></div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                          <div class="form-group"><label for="tel">* Telefonhe</label><input type="text" onkeypress="return onlyNumberKey(event)" maxlength="16"
+                                                                                                 class="form-control"
+                                                                                                 id="tel"></div>
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                          <div class="form-group"><label>* Tijorat banklar</label><select class="form-control" id="bank">
+                            <option value="10">Ipoteka bank</option>
+                            <option value="11">Orient Finans bank</option>
+                            <option value="12">Aloqabank</option>
+                            <option value="5">Xalq banki</option>
+                            <option value="3">Agrobank</option>
+                            <option value="1">Milliy bank</option>
+                            <option value="9">Asaka bank</option>
+                            <option value="8">Hamkorbank</option>
+                            <option value="6">Qishloq qurilish bank</option>
+                            <option value="2">Sanoat qurilish bank</option>
+                            <option value="4">Mikrokreditbank</option>
+                          </select></div>
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                          <div class="form-group"><label for="summa">* Kredit miqdori</label><input type="text"
+                                                                                                    class="form-control"
+                                                                                                    id="summa"></div>
+                        </div>
+                      <div class="col-lg-12">
+                            <button type="button" class="btn mt-3">Arizani yuboring</button>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+<!--  &lt;!&ndash; contact section &ndash;&gt;-->
+
+<!--  <section class="contact_section">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--          <div class="detail-box">-->
+<!--            <div class="heading_container">-->
+<!--              <h3>-->
+<!--                Ariza-->
+<!--              </h3>-->
+<!--              <p>-->
+<!--                Moliyaviy hisobotning xalqaro standartlari bo‘yicha o‘qitish xarajatlarini qoplab berish to‘g‘risida-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--          <div class="contact-form">-->
+<!--            <h5>-->
+<!--              Ariza to'ldirish-->
+<!--            </h5>-->
+<!--            <form action="">-->
+<!--              <div>-->
+<!--                <input id="sur_name" value="" type="text" placeholder="Familya" disabled/>-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <input id="first_name" type="text" placeholder="Ism" disabled/>-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <input id="mid_name" type="text" placeholder="Otasining ismi " disabled/>-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <input id="mob_phone_no" type="text" placeholder="Telefon raqami" />-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <input id="email" type="email" placeholder="Elektron pochta manzili" />-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <input type="text" name="place" placeholder="Ish (o‘qish) joyi va lavozimi" class="input_message" />-->
+<!--              </div>-->
+<!--              <form>-->
+<!--                <div class="form-group">-->
+<!--                  <label for="exampleFormControlFile1">Example file input</label>-->
+<!--                  <input type="file" class="form-control-file" id="exampleFormControlFile1">-->
+<!--                </div>-->
+<!--              </form>-->
+<!--              <div class="d-flex justify-content-center">-->
+<!--                <button type="submit" class="btn_on-hover">-->
+<!--                  Yuborrish-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </form>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  &lt;!&ndash; end contact section &ndash;&gt;-->
+
+    <script type="text/javascript" src="{% static 'js/auth.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+    <script>
+  window.onload = function() {
+	if(!window.location.hash) {
+		window.location = window.location + '#loaded';
+		window.location.reload();
+	}
+}
+      function onlyNumberKey(evt) {
+
+        // Only ASCII character in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+    </script>
+
+</body>
+
+</html>

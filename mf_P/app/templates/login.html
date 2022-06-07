@@ -1,0 +1,109 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>M H X S</title>
+
+  <link rel="stylesheet" href="{% static 'style_log.css' %}">
+
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- fonts style -->
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/styleHome.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+
+
+
+</head>
+<body>
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <h3>
+              M H X S
+            </h3>
+            <!-- <span> college</span> -->
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">          
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}"> About </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="detail-box">
+                    <div>
+                      <h1>
+                        M H X S
+                      </h1>
+                      <div class="form_wrapper">
+                        <div class="form_conatiner">
+                          <div class="row clearfix">
+                            <div class="">
+                              <form method="POST" action="">
+                                {% csrf_token %}
+                                <div class="input_field"> <span><img src="{% static 'images/user_log.png' %}"></img></span>
+                                  <input type="username" name="username" placeholder="Foydalanuvchi"/>
+                                </div>
+                                <div class="input_field"> <span><img src="{% static 'images/password.png' %}"></img></span>
+                                  <input type="password" name="password" placeholder="Parol"/>
+                                </div>
+                                <input class="button" type="submit" value="Kirish"/>
+                                <a class="spec_a" href="https://sso.egov.uz/sso/oauth/Authorization.do?response_type=one_code&client_id=msfoLCfee.mf.uz&redirect_uri=http%3A%2F%2Flocalhost:8000/ariza&scope=msfoLCfee.mf.uz&state=mf">OneID</a>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <script src='https://use.fontawesome.com/4ecc3dbb0b.js'></script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+</div>
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>
+
